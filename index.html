@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="calculator.js" defer></script>
+</head>
+
+<body>
+    <h1>Calculator</h1>
+
+    <input type="number" id="num1" placeholder="Number 1">
+    <input type="number" id="num2" placeholder="Number 2">
+
+    <button onclick="calculate('+')">Add</button>
+    <button onclick="calculate('-')">Subtract</button>
+    <button onclick="calculate('*')">Multiply</button>
+    <button onclick="calculate('/')">Divide</button>
+
+    <h2>Result: <span id="result">0</span></h2>
+
+    <h3>History:</h3>
+    <ul id="history"></ul>
+
+    <script>
+        function calculate(op) {
+            const n1 = Number(document.getElementById('num1').value);
+            const n2 = Number(document.getElementById('num2').value);
+            let res;
+
+            switch (op) {
+                case '+': res = add(n1, n2); break;
+                case '-': res = subtract(n1, n2); break;
+                case '*': res = multiply(n1, n2); break;
+                case '/': res = divide(n1, n2); break;
+            }
+
+            document.getElementById('result').innerText = res;
+
+            // Update history
+            const historyEl = document.getElementById('history');
+            const lastEntry = calculationHistory[calculationHistory.length - 1];
+            const li = document.createElement('li');
+            li.innerText = `${lastEntry.operands[0]} ${lastEntry.operator} ${lastEntry.operands[1]} = ${lastEntry.result}`;
+            historyEl.appendChild(li);
+        }
+    </script>
+</body>
+
+</html>
