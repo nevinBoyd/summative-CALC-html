@@ -25,26 +25,29 @@
     <ul id="history"></ul>
 
     <script>
-        function calculate(op) {
-            const n1 = Number(document.getElementById('num1').value);
-            const n2 = Number(document.getElementById('num2').value);
-            let res;
+        function evaluateExpression() {
+            const expr = document.getElementById('expression').value;
 
-            switch (op) {
-                case '+': res = add(n1, n2); break;
-                case '-': res = subtract(n1, n2); break;
-                case '*': res = multiply(n1, n2); break;
-                case '/': res = divide(n1, n2); break;
+            try {
+                const result = eval(expr); // ⚠️ simple but insecure in real apps
+                document.getElementById('result').innerText = result;
+
+                // Save to history
+                const entry = {
+                    expression: expr,
+                    result: result,
+                    timestamp: new Date().toLocaleString()
+                };
+                calculationHistory.push(entry);
+
+                const historyEl = document.getElementById('history');
+                const li = document.createElement('li');
+                li.innerText = `${expr} = ${result}`;
+                historyEl.appendChild(li);
+
+            } catch (e) {
+                alert("Invalid expression. Please check your input.");
             }
-
-            document.getElementById('result').innerText = res;
-
-            // Update history
-            const historyEl = document.getElementById('history');
-            const lastEntry = calculationHistory[calculationHistory.length - 1];
-            const li = document.createElement('li');
-            li.innerText = `${lastEntry.operands[0]} ${lastEntry.operator} ${lastEntry.operands[1]} = ${lastEntry.result}`;
-            historyEl.appendChild(li);
         }
     </script>
 </body>
