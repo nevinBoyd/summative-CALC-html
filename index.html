@@ -11,13 +11,8 @@
 <body>
     <h1>Calculator</h1>
 
-    <input type="number" id="num1" placeholder="Number 1">
-    <input type="number" id="num2" placeholder="Number 2">
-
-    <button onclick="calculate('+')">Add</button>
-    <button onclick="calculate('-')">Subtract</button>
-    <button onclick="calculate('*')">Multiply</button>
-    <button onclick="calculate('/')">Divide</button>
+    <input type="text" id="expression" placeholder="Enter equation (e.g. 5 + 3 * 2)">
+    <button onclick="evaluateExpression()">Calculate</button>
 
     <h2>Result: <span id="result">0</span></h2>
 
