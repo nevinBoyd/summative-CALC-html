@@ -1,4 +1,4 @@
 //Summative .html Calculator First Commit//
-//Turning in with code.//
-//Rushing just at the end....Next Week will//
-//be better//
+//Work in progress//
+//code noted because im scattered brained//
+//Cleaned up *function displayHistory* with suggestion of object deconstructuring see line 50-54//

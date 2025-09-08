@@ -24,10 +24,10 @@
             const expr = document.getElementById('expression').value;
 
             try {
-                const result = eval(expr); // ⚠️ simple but insecure in real apps
+                const result = eval(expr); //If not working, Dbl Ck DB, 
                 document.getElementById('result').innerText = result;
 
-                // Save to history
+
                 const entry = {
                     expression: expr,
                     result: result,

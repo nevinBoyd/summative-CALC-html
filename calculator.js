@@ -49,31 +49,16 @@ function displayHistory() {
 
     console.log('=== Calculation History ===');
     calculationHistory.forEach((entry, index) => {
-        console.log(`${index + 1
-            }: ${entry.operands[
-            0
-            ]
-            } ${entry.operator
-            } ${entry.operands[
-            1
-            ]
-            } = ${entry.result
-            } (${entry.timestamp
-            })`);
-    });
-}
+        const { operands, operator, result, timestamp })
+    console.log('${index+1}: ${operands[0]} ${operator} ${operands[1]} = ${result}($timestamp)')
+});
 
 console.log('Calculator Demo:\n');
-console.log('5 + 3 =', add(5,
-    3));
-console.log('10 - 4 =', subtract(10,
-    4));
-console.log('6 * 7 =', multiply(6,
-    7));
-console.log('20 / 5 =', divide(20,
-    5));
-console.log('10 / 0 =', divide(10,
-    0));
+console.log('5 + 3 =', add(5, 3));
+console.log('10 - 4 =', subtract(10, 4));
+console.log('6 * 7 =', multiply(6, 7));
+console.log('20 / 5 =', divide(20, 5));
+console.log('10 / 0 =', divide(10, 0));
 
 console.log('\nDisplaying History:');
 displayHistory();
